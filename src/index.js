@@ -1,9 +1,11 @@
 const express = require('express')
-const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser');
+
+const app = express()
 const PORT = 3000  
 
+//question 10
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -34,6 +36,14 @@ app.use((error, req, res, next) => {
     })
 })
 
+//question 11
+app.use(express.static('public'));
+app.use(express.static('images'));
+app.use(express.static('files'));
+
+app.use('/static', express.static('public'));
+
+//get and run server
 app.get('/', (req, res) => {
     return res.send("Hello word");
 })
