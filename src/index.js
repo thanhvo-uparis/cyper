@@ -42,6 +42,7 @@ app.use(express.static('images'));
 app.use(express.static('files'));
 
 app.use('/static', express.static('public'));
+app.use('/static', express.static(__dirname + '/public'));
 
 //get and run server
 app.get('/', (req, res) => {
